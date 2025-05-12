@@ -1,1 +1,98 @@
+Step by step approach:
+
+NET ID TO START WITH: 172.30.0.0/16
+
+Largest number of hosts reqirements is for Sanfrancisco router so we will start vlsm from there: 
+Hosts Required: 5996
+
+subnetmask: 255.255.0.0 = 11111111.11111111.00000000.00000000
+
+2^2 - 2 >= 5996
+n = 13
+
+Burrowing bits:  11111111.11111111.000|00000.00000000 [Counting 13 bits from right to left]
+    =11111111.11111111.11100000.00000000 
+in Decimal: 255.255.224.0
+CIDR: /19
+magic number = 256-224= 32
+
+
+Adding 32 to the third octet since we flipped bits in the third octet:
+Next NETID: 172.30.32.0
+now we will find the host required for the second largest one and it is 1080 for miami:
+subnetmask: 255.255.224.0 = 11111111.11111111.11100000.00000000 
+2^2-2 >= 1080
+n = 11
+Burrowing bits:  11111111.11111111.11111|000.00000000 [Counting 11 bits from right to left]
+in Decimal: 255.255.248.0
+CIDR: /21
+Magic number: 256-248= 8
+Adding 8 to the third octet since we flipped bits in the third octet.
+
+Next NETID: 172.30.40.0
+Now we will find the host required for chicago that is 210 hosts:
+subnetmask: 255.255.248.0= 11111111.11111111.11111000.00000000
+2^2-2 >= 210 = 8
+Burrowing bits: 11111111.11111111.11111111.|00000000[Counting 8 bits from right to left]
+in decimal: 255.255.255.0
+CIDR: 24
+Magic number: 256-255: 1
+Adding 1 to the third octet since we flipped bits in the third octet only
+Next NETID: 172.30.41.0
+
+Now we will find the host required for Newyork that is 75 hosts:
+
+2^n-2 >= 75
+n = 7
+Burrowing bits: 11111111.11111111.11111111.1|0000000[Counting 7 bits from right to left]
+in decimal: 255.255.255.128
+cidr: 25
+Magic Number: 256-128= 128
+Adding 128 in the last octet since we flipped bits in the fourth one.
+Net NETID: 172.30.41.128
+
+connection between routers:
+
+2^n >= 4 [ For each router it needs 4 ips]
+n = 2
+Burrowing Bits: 11111111.11111111.11111111.111111|00
+in decimal: 255.255.255.
+CIDR: /30
+Magic number = 256-252 = 4
+Adding 4 in the last octet
+172.30.41.132
+
+
+Listing all NETID from the start with their respective SUBNET MASK CIDR Notation:
+
+172.30.0.0/19
+Default Gateway: 172.30.0.1/19
+First IP a host can have: 172.30.0.2/19
+Last usable IP: 172.30.31.254/19
+Broadcast Address: 172.30.31.255/19
+
+
+172.30.32.0/21
+Default Gateway: 172.30.32.1/21
+First IP a host can have: 172.30.32.2/21
+Last usable IP: 172.30.39.254/21
+Broadcast Address: 172.30.39.255/21
+
+172.30.40.0/24
+Default Gateway: 172.30.40.1/24
+First IP a host can have: 172.30.40.2/24
+Last usable IP: 172.30.40.254/24
+Broadcast Address: 172.30.40.255/24
+
+172.30.41.0/25
+Default Gateway: 172.30.41.1/25
+First IP a host can have: 172.30.41.2/25
+Last usable IP: 172.30.41.254/25
+Broadcast Address: 172.30.41.255/25
+
+172.30.41.128
+
+
+
+
 
