@@ -1,1 +1,27 @@
 
+In the putty console:
+
+commands i type are as follows:
+
+enable
+config t
+hostname mia or nyc or san or chi depending on which router i was working on
+
+to encrypt the modes:
+enable secret mia or nyc or chi or san
+line console 0
+password mia or nyc or chi or san
+login 
+
+to encrypt password:
+
+service password-encrypt
+
+Detterent control: 
+banner motd "unauthorized login attempts are prohibited"
+To prevent domain lookup when a command is mistakely typed:
+
+no ip domain-lookup
+
+
+
