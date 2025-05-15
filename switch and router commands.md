@@ -18,7 +18,7 @@ enable secret mia or nyc or chi or san
 
 ## Set Console Line Password
 line console 0
-password mia // or nyc, chi, san
+password mia or nyc, chi, san
 login
 
 
@@ -62,7 +62,7 @@ transport input telnet
 ## SSH Configuration
 ip domain-name anydomain.com
 crypto key generate rsa
-// When prompted, enter key size: 1024 or 2048
+//When prompted, enter key size: 1024 or 2048
 username project password project123
 line vty 0 15
 login local
@@ -78,16 +78,12 @@ router ospf 1
 network 172.30.0.0 0.0.255.255 area 0
 
 
-
-
 ### Show IP Routes
 show ip route
 
 
-
 ### Show Running Configuration
 show running-config
-
 
 
 ### Show MAC Address Table (for Switches)
