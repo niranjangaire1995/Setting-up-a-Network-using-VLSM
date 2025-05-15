@@ -21,4 +21,14 @@
 - Implemented OSPF on all routers using the command:  
   ```plaintext
   router ospf 1  
-  network 172.30.0.0 0.0.255.255 area 0  
+  network 172.30.0.0 0.0.255.255 area 0
+  ### **3. Default Gateway Not Assigned to Switches**
+
+**Issue:**  
+Switches didn’t have a default gateway, causing them to be unable to communicate beyond their local subnet.
+
+**Solution:**  
+Assigned default gateways on all switches using:  
+```plaintext
+Switch(config)# ip default-gateway 172.30.x.1  
+
