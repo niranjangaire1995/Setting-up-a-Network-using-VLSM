@@ -7,12 +7,12 @@ configure terminal
 
 
 ## Set Hostname (Based on Router)
-hostname mia // or nyc, san, chi
+hostname mia or nyc or san or chi
 
 
 
 ## Encrypt Enable Mode Password
-enable secret mia // or nyc, chi, san
+enable secret mia or nyc or chi or san
 
 
 
