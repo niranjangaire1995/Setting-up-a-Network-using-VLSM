@@ -36,10 +36,11 @@ no ip domain-lookup
 
 
 ## Assign IP Address to Interface
-interface GigabitEthernet0/1 or G0/2
-ip address 172.30.32.2 255.255.255.255
-no shutdown
-exit
+interface G0/2  
+ip address 172.30.32.2 255.255.255.255  
+no shutdown  
+exit  
+
 
 
 ## Set Default Gateway (on Switches)
@@ -47,35 +48,34 @@ ip default-gateway 172.30.32.1
 
 
 ## Shutdown an Unused Port
-interface GigabitEthernet0/0
-shutdown
-exit
+interface G0/0  (Or whatever the port is)
+shutdown  
+exit  
+
 
 
 ## Telnet Configuration
-line vty 0 15
-password yourpassword
-login
-transport input telnet
+line vty 0 15  
+password yourpassword  
+login  
+transport input telnet  
+
 
 
 ## SSH Configuration
-ip domain-name anydomain.com
-crypto key generate rsa
-//When prompted, enter key size: 1024 or 2048
-username project password project123
-line vty 0 15
-login local
-transport input ssh
-
-
-## SSH Access Example
-ssh project@172.30.0.1
+ip domain-name anydomain.com  
+crypto key generate rsa  
+//When prompted, enter key size: 1024 or 2048  
+username project password project123  
+line vty 0 15  
+login local  
+transport input ssh  
+project@172.30.0.1
 
 
 ## Enable OSPF (Dynamic Routing)
-router ospf 1
-network 172.30.0.0 0.0.255.255 area 0
+router ospf 1  
+network 172.30.0.0 0.0.255.255 area 0  
 
 
 ### Show IP Routes
