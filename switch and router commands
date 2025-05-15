@@ -1,7 +1,7 @@
 
 In the putty console:
 
-commands i type are as follows:
+commands i typed are as follows:
 
 enable
 config t
@@ -14,14 +14,50 @@ password mia or nyc or chi or san
 login 
 
 to encrypt password:
-
 service password-encrypt
 
 Detterent control: 
 banner motd "unauthorized login attempts are prohibited"
-To prevent domain lookup when a command is mistakely typed:
 
+To prevent domain lookup when a command is mistakely typed:
 no ip domain-lookup
+
+in config terminal mode, typing interface G0/1 or G0/2 helps to assign ip and subnet mask to that interface
+command for ip followed by subnet mask:  ip address 172.30.32.2 255.255.255.255
+
+set default gateway for switches: ip set default-gateway 172.30.32.1
+To shutdown a unused port:
+interface G0/0
+shutdown
+exit
+
+command to see the ip routes(In previlege exec mode):
+show ip route
+
+command to show all the running configuration:
+show run
+command to show mac address table:
+show mac-address-table
+
+Assign Telnet:
+vty line 0 15
+password anything
+transport input telnet
+
+
+command for establishing ssh:
+ip domain-name anydomain.com
+crypto key generate rsa
+when prompted fro size do 1024 or 2048
+username project password project123
+vty line 0 15
+transport input ssh
+login local 
+
+accessing a router or switch through ssh:
+ssh project@172.30.0.1
+
+
 
 
 This command was used as routers were not pinging due to the lack of dynamic routing but this fixed the problem
