@@ -150,32 +150,36 @@
 
 ### **1. Connection Between Routers (NETID: 172.30.41.128/30)**
 
-- **San Francisco to Chicago**: Port G0/0: 172.30.41.129/30  
-- **San Francisco to New York**: Port G0/1: 172.30.41.130/30  
+- **San Francisco to Chicago**: Port G0/1: 172.30.41.129/30  
+- **Chicago to San francisco**: Port G0/1: 172.30.41.130/30
+- [Subnet Mask: 255.255.255.252]
 - **Broadcast Address**: 172.30.41.131/30
 
 ---
 
 ### **2. Miami to New York and Miami to Chicago (NETID: 172.30.41.132/30)**
 
-- **Miami to New York**: 172.30.41.133/30  
-- **Miami to Chicago**: 172.30.41.134/30  
+- **Chicago to New York**: Port G0/2: 172.30.41.133/30  
+- **Newyork to Chicago**: Port G0/1: 172.30.41.134/30
+- [Subnet Mask: 255.255.255.252]
 - **Broadcast Address**: 172.30.41.135/30
 
 ---
 
 ### **3. New York to San Francisco and New York to Miami (NETID: 172.30.41.136/30)**
 
-- **New York to San Francisco**: 172.30.41.137  
-- **New York to Miami**: 172.30.41.138  
+- **Miami to Newyork**: Port G0/1: 172.30.41.137  
+- **New York to Miami**: Port G0/2: 172.30.41.138
+- [Subnet Mask: 255.255.255.252]
 - **Broadcast Address**: 172.30.41.139
 
 ---
 
 ### **4. Chicago to San Francisco and Chicago to Miami (NETID: 172.30.41.140/30)**
 
-- **Chicago to San Francisco**: 172.30.41.141  
-- **Chicago to Miami**: 172.30.41.142  
+- **Miami to San Francisco**: Port G0/2: 172.30.41.141  
+- **San Francisco to Miami**: Port G0/2: 172.30.41.142
+- [Subnet Mask: 255.255.255.252]
 - **Broadcast Address**: 172.30.41.143
 
 ---
