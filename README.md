@@ -1,4 +1,6 @@
 ## VLSM Subnetting and Network Design: 4 Routers in 4 Cities
+![image](https://github.com/user-attachments/assets/1d38d010-8f9e-4ca5-af04-18eb8c05c00f)
+
 
 ### Project Overview
 
